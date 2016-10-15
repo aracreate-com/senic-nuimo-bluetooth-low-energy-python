@@ -43,7 +43,9 @@ def main():
 
     for device in devices:
         print('Found device: {0}, id: {1}'.format(device.name, device.id))        
-        if device.id == uuid.UUID('88ac52af-993c-418e-aa6e-31cf61c29cfd'):            
+        # if device.id == uuid.UUID('88ac52af-993c-418e-aa6e-31cf61c29cfd'):
+        if device.id == uuid.UUID('e206b057-da34-419f-b00c-69b37ca7f066'):
+        if device.id == uuid.UUID('6dca1e0a-345d-4a59-9368-c3a9fc49657b'):
             print 'Found myNuimo'
             nuimo = device
 
@@ -75,7 +77,26 @@ def main():
                 print 'Encoder: ', map(ord, data)
 
             def accelerometer_received(data):
-                print 'Orientation: ', map(ord, data)
+                if data == 0x40:
+                    print "Z_LOCKOUT"
+                elif data == 0x4:
+                    print "POTRAIT_UP_BACK"
+                elif data == 0x5:
+                    print "POTRAIT_UP_FRONT"
+                elif data == 0x6:
+                    print "POTRAIT_DOWN_BACK"
+                elif data == 0x7:
+                    print "POTRAIT_DOWN_FRONT"
+                elif data == 0x2:
+                    print "LANDSCAPE_LEFT_BACK"
+                elif data == 0x3:
+                    print "LANDSCAPE_LEFT_FRONT"
+                elif data == 0x0:
+                    print "LANDSCAPE_RIGHT_BACK"
+                elif data == 0x1:
+                    print "LANDSCAPE_RIGHT_FRONT"
+                else:
+                    print 'Orientation: ', map(ord, data)
 
             button_characteristic.start_notify(button_received)
             rotation_characteristic.start_notify(rotation_received)
