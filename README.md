@@ -1,5 +1,5 @@
 # Nuimo Client on MacOS and Linux
-These python scripts are used for prototyping with [Nuimo](https://www.senic.com/en/sonos) which implement Nuimo's GATT Profile using Adafruit BLE library for Corebluetooth and Bluez. There these scripts can be used on MacOS and Linux.
+These python scripts are used for prototyping with [Nuimo](https://www.senic.com) which implement Nuimo's GATT Profile using Adafruit BLE library for Corebluetooth and Bluez. There these scripts can be used on MacOS and Linux.
 
 ## GATT Profile [ [PDF](https://files.senic.com/nuimo-gatt-profile.pdf) ]
 Nuimo Application defines its own GATT (Generic Attribute) Profile along with standard services such as Device Information Service (DIS) and Battery Service (BAS). When Nuimo is connected to a BLE Central, Nuimo App on BLE Central discovers all the services and characteristics and assigns Handle IDs which are used internally to refer the characteristics. Services and characteristics are discovered in the order of their initialization on the firmware side. 
